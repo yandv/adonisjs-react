@@ -35,11 +35,7 @@ Route.group(() => {
   })
 }).prefix('/api/v1')
 
-
-Route.get('/home', async ({ view }: HttpContextContract) => {
-  return view.render('app', { render: 'home' })
-})
-
-Route.get('*', async ({ view }: HttpContextContract) => {
-  return view.render('app', { render: 'not-found' })
+Route.get('*', async ({ view, request }: HttpContextContract) => {
+  const pattern = request.url(false).substring(1);
+  return view.render('app', { route: pattern })
 })
