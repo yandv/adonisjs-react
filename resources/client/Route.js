@@ -11,8 +11,6 @@ const routes = {
 export default class Route extends Component {
     constructor(props) {
         super(props);
-
-        console.log(props.route)
     }
 
     render() {
